@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Binary Text Converter</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        body{
+            background: linear-gradient(to right, #8e2de2, #4a00e0);
+        }
+        .maindiv{
+            text-align: center;
+        }
+        .heading{
+            font-size:60px;
+            font-family: verdana;
+            color:white;
+            letter-spacing: 2px;
+            margin:10px 0 30px;
+            text-shadow: 2px 3px 9px black;
+        }
+        #inputtext{
+            width:500px;
+            height: 50px;
+            font-size:20px;
+            padding:15px;
+            background:teal;
+            color:white;
+            border:2px solid black;
+            font-family: verdana;
+            box-shadow: 2px 3px 10px black;
+        }
+        #inputtext::placeholder{color:rgba(255,255,255,.7);}
+        #outputtext{
+            margin-top:30px;
+            width:50rem;
+            height: 20rem;
+            font-size:20px;
+            padding:15px;
+            background:#34495e;
+            color:white;
+            border:2px solid black;
+            font-family: monospace;
+            box-shadow: 2px 3px 15px black;
+            overflow: auto;
+        }
+        #outputtext::placeholder{color:rgba(255,255,255,.7);}
+        .copyright{
+            margin-top:30px;
+            width:100%;
+            background-color:black;
+            color:white;
+            font-family: sans-serif;
+            padding:10px;
+        }
+        .copyright a{
+            color:blueviolet;
+            text-decoration: none;
+        }
+        @media only screen and (max-width:600px){
+            .heading{
+            font-size:30px;
+            color:white;
+            letter-spacing: 1px;
+        }
+        #inputtext{
+            width:350px;
+            height: 50px;
+        }
+        #outputtext{
+            width:25rem;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="maindiv">
+        <h1 class="heading">Binary Text Converter</h1>
+        <input type="text" id="inputtext" placeholder="Enter Your Text..."><br><br>
+        <textarea id="outputtext"  placeholder="Your Binary Text..." readonly></textarea>
+        <div class="copyright">
+            <h3>Developed by <a href="https://yourwebsite.github.io" target="_blank">Sandip Sadhukhan</a>.</h3>
+        </div>
+    </div>
+    <script>
+        var i;
+        //add eventlister
+        document.getElementById('inputtext').addEventListener('input',getbinary);
+        //get binary fuction
+        function getbinary(){
+            let inputtext=document.getElementById('inputtext').value;
+            let outputtext=document.getElementById('outputtext');
+            let outputletter='';
+            if(inputtext=='')
+            outputtext.innerHTML='';
+            else{
+                for(i=0;i<inputtext.length;i++){
+                    outputletter += inputtext.charCodeAt(i).toString(2);
+                }
+            }
+            outputtext.innerHTML=outputletter;
+
+        }
+            
+    </script>
+</body>
+</html>
